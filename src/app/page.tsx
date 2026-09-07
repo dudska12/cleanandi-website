@@ -1,14 +1,29 @@
-export default function Home() {
+import { MobileCallBar } from "@/components/layout/MobileCallBar";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { Hero } from "@/components/sections/Hero";
+import { PlacesSection } from "@/components/sections/PlacesSection";
+import { PricingSection } from "@/components/sections/PricingSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+
+export default function HomePage() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">
-      <main className="flex max-w-xl flex-col items-center gap-6">
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          클린앤아이
-        </h1>
-        <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-          클린앤아이 공식 홈페이지입니다. 곧 새로운 모습으로 찾아뵙겠습니다.
-        </p>
+    <>
+      <SiteHeader />
+      <main id="main">
+        <Hero />
+        <ServicesSection />
+        <PlacesSection />
+        <PricingSection />
+        <ProcessSection />
+        <FaqSection />
+        <ContactSection />
       </main>
-    </div>
+      <SiteFooter />
+      <MobileCallBar />
+    </>
   );
 }
