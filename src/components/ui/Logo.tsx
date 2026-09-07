@@ -1,16 +1,21 @@
+import Image from "next/image";
+import logo from "@/assets/logo.png";
 import { site } from "@/content/site";
 
 /**
- * 텍스트 로고 락업. 실제 로고 이미지가 준비되면 public/logo.svg 를 두고
- * 이 컴포넌트를 next/image 로 교체하면 된다.
+ * 헤더용 로고. 현재 자산은 정사각 스택형 락업(흰 배경)이라 흰색 헤더에서만 자연스럽다.
+ * 가로형/투명 배경 버전이 생기면 src/assets/logo.png 만 교체하면 된다.
  */
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span
-      className={`flex items-baseline gap-2 font-extrabold tracking-[-0.02em] text-ink ${className}`}
-    >
-      <span className="text-[19px]">{site.name}</span>
-      <span className="text-[13px] font-semibold text-muted">{site.nameEn}</span>
-    </span>
+    <Image
+      src={logo}
+      alt={`${site.name} ${site.nameEn}`}
+      width={52}
+      height={52}
+      priority
+      sizes="52px"
+      className={`h-[46px] w-[46px] sm:h-[52px] sm:w-[52px] ${className}`}
+    />
   );
 }
